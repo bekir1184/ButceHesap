@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".FragmentSayfalar.Rapor.Rapor">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.gigamole.navigationtabstrip.NavigationTabStrip
+            android:id="@+id/nts"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:nts_color="@color/colorPrimary"
+            app:nts_size="15sp"
+            app:nts_weight="3dp"
+            app:nts_factor="2.5"
+            app:nts_type="line"
+            app:nts_gravity="top"
+            app:nts_typeface="fonts/typeface.otf"
+            app:nts_corners_radius="1.5dp"
+            app:nts_animation_duration="300"
+            app:nts_active_color="@color/colorPrimary"
+            app:nts_inactive_color="#c4c4c4"/>
+
+        <FrameLayout
+            android:layout_below="@+id/nts"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/frame3"/>
+    </RelativeLayout>
+
+
+
+</FrameLayout>

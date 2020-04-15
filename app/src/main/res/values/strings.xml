@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ButceHesap</string>
+
+    <string name="navigation_drawer_open">Navigation drawer is open.</string>
+    <string name="navigation_drawer_close">Navigation drawer is close.</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
