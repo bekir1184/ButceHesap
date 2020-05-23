@@ -1,25 +1,22 @@
 package com.example.butcehesap.FragmentSayfalar.Rapor.Aylik.Kategoriler;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.butcehesap.Adapter.AylikItemAdapter;
+import androidx.fragment.app.DialogFragment;
+
+import com.example.butcehesap.Adapter.AylikGiderAdapter;
 import com.example.butcehesap.Model.Harcama;
 import com.example.butcehesap.R;
 import com.example.butcehesap.SQLite.VeriKatmani;
 
 import java.util.List;
 
-public class Diger extends Fragment {
+public class Diger extends DialogFragment {
     View rootView;
     List<Harcama> liste ;
     VeriKatmani veriKatmani;
@@ -29,7 +26,7 @@ public class Diger extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        rootView = inflater.inflate(R.layout.fragment_diger, container, false);
+        rootView = inflater.inflate(R.layout.fragment_diger, null);
         veriKatmani =new VeriKatmani(getContext());
         liste =veriKatmani.listele("Diğer");
 
@@ -37,7 +34,7 @@ public class Diger extends Fragment {
         toplam.setText(veriKatmani.harcamaToplam("Diğer")+"₺");
 
         ListView listView =rootView.findViewById(R.id.digerListe);
-        AylikItemAdapter aylikItemAdapter =new AylikItemAdapter(getActivity(),liste);
+        AylikGiderAdapter aylikItemAdapter =new AylikGiderAdapter(getActivity(),liste);
         listView.setAdapter(aylikItemAdapter);
 
         return rootView;

@@ -1,5 +1,6 @@
 package com.example.butcehesap.FragmentSayfalar.Rapor.Aylik;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,7 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
-import com.example.butcehesap.Model.Gelir;
 import com.example.butcehesap.Model.Harcama;
 import com.example.butcehesap.R;
 import com.example.butcehesap.SQLite.VeriKatmani;
@@ -17,7 +17,6 @@ import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
-import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -72,7 +71,7 @@ public class Grafik extends DialogFragment {
         veriler.add(new PieEntry(diger,"Diğer"));
 
         PieDataSet pieDataSet = new PieDataSet(veriler,"Giderler");
-        pieDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
+        pieDataSet.setColors(Color.rgb(100,86,255),Color.rgb(255,176,86),Color.rgb(241,255,86),Color.rgb(255,86,241),Color.rgb(255,134,86));
         pieDataSet.setLabel("Aylık Giderler");
         PieData pieData =new PieData(pieDataSet);
         PieChart pieChart = rootView.findViewById(R.id.pieGrap);

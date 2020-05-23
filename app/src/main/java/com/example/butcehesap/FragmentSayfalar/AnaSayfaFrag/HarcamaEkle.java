@@ -1,5 +1,6 @@
 package com.example.butcehesap.FragmentSayfalar.AnaSayfaFrag;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.widget.EditText;
 
 import androidx.fragment.app.DialogFragment;
 
+import com.example.butcehesap.MainActivity;
 import com.example.butcehesap.Model.Harcama;
 import com.example.butcehesap.R;
 import com.example.butcehesap.SQLite.VeriKatmani;
@@ -66,7 +68,6 @@ public class HarcamaEkle extends DialogFragment {
         materialSpinner.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener() {
             @Override
             public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
-                Snackbar.make(rootView,item+" seçildi",Snackbar.LENGTH_LONG).show();
                 kategori =item.toString();
             }
         });
@@ -82,7 +83,8 @@ public class HarcamaEkle extends DialogFragment {
                         veriKatmani.harcamaEkle(harcama);
                         aciklama.setText("");
                         tutar.setText("");
-                        Snackbar.make(rootView,"Harcama eklendi",Snackbar.LENGTH_LONG).show();
+                        Intent intent = new Intent(getContext(),MainActivity.class);
+                        startActivity(intent);
 
                     }
                     else{
@@ -90,6 +92,7 @@ public class HarcamaEkle extends DialogFragment {
                         aciklama.setText("");
                         tutar.setText("");
                     }
+
 
 
 

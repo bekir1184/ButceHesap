@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="ay" type="id" />
+    <item name="marketToplam" type="id" />
+    <item name="akaryakitToplam" type="id" />
+    <item name="giyimToplam" type="id" />
+    <item name="faturaToplam" type="id" />
+    <item name="digerGiderToplam" type="id" />
+    <item name="maasToplam" type="id" />
+    <item name="digerGelirToplam" type="id" />
+</resources>

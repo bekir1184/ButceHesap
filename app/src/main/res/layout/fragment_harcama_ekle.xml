@@ -3,103 +3,93 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".FragmentSayfalar.AnaSayfaFrag.HarcamaEkle">
     <!--id=aciklama  id=tutar  id=spinner id=ekle-->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-
         <androidx.cardview.widget.CardView
-
+            android:id="@+id/card1"
+            android:layout_margin="20dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:cardBackgroundColor="@android:color/white"
-            app:cardCornerRadius="25dp">
-            <RelativeLayout
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/colorPrimaryDark"
+            app:cardCornerRadius="10dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gider Ekle"
+                android:textStyle="bold"
+                android:textSize="40dp"
+                android:textColor="@color/colorPrimary"
+                android:fontFamily="@font/madelina"
+                android:layout_gravity="center"
+                />
+
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_below="@+id/card1"
+            android:layout_margin="20dp"
+            android:id="@+id/card2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/colorPrimaryDark"
+            app:cardCornerRadius="10dp"
+            >
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <LinearLayout
-                    android:id="@+id/bas"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <EditText
+                    android:textColor="@color/colorWhite"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_margin="5dp"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:src="@drawable/leaf"/>
-                    <TextView
-                        android:layout_marginLeft="30dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Harcama Ekle"
-                        android:textSize="25dp"
-                        android:textColor="@android:color/black"
-                        android:textStyle="bold"
-                        android:layout_gravity="center"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_below="@+id/bas"
+                    android:hint="Aciklama giriniz"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    android:layout_margin="10dp"
+                    android:id="@+id/aciklama"
+                    android:fontFamily="@font/madelina"
+                    />
+                <EditText
+                    android:textColor="@color/colorWhite"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="15dp"
-                        android:id="@+id/aciklama"
-                        android:hint="Aciklama giriniz"/>
-                    <EditText
-
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="15dp"
-                        android:id="@+id/Tutar"
-                        android:hint="Harcama tutarini giriniz"/>
-                    <com.jaredrummler.materialspinner.MaterialSpinner
-                        android:layout_margin="15dp"
-                        app:ms_background_color="@color/colorAccent"
-                        android:textColor="@android:color/white"
-                        android:textStyle="bold"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/spinner"
-                        />
-                </LinearLayout>
-
-                <Button
-                    android:id="@+id/ekle"
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Harcama ekle"
-                    android:layout_alignParentBottom="true"
-                    android:layout_centerHorizontal="true"
-                    android:background="@drawable/buttonarka"
-                    android:textColor="@android:color/white"
-                    android:layout_margin="20dp"
-                    android:textAllCaps="false"/>
-
-            </RelativeLayout>
-
-
-
-
-
-
-
+                    android:hint="Gider tutari"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    android:layout_margin="10dp"
+                    android:id="@+id/Tutar"
+                    android:fontFamily="@font/madelina"
+                    />
+                <com.jaredrummler.materialspinner.MaterialSpinner
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    app:ms_arrow_tint="@color/colorAccent"
+                    app:ms_background_color="@color/colorPrimaryDark"
+                    android:layout_margin="10dp"
+                    android:id="@+id/spinner"/>
+            </LinearLayout>
 
         </androidx.cardview.widget.CardView>
 
-
-
-
-
+        <Button
+            android:id="@+id/ekle"
+            android:background="@drawable/buttonarka"
+            android:layout_margin="20dp"
+            android:text="Ekle"
+            android:textColor="@color/colorWhite"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/madelina"
+            android:textAllCaps="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/card2"
+            />
 
     </RelativeLayout>
 

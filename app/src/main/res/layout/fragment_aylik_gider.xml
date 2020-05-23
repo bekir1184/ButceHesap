@@ -1,32 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".FragmentSayfalar.Rapor.Aylik.AylikGider">
+    tools:context=".FragmentSayfalar.Rapor.Aylik.AylikGelir">
 
-    <include android:id="@+id/app_bar"
-        layout="@layout/toolbar_main"/>
-    <com.google.android.material.tabs.TabLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/tab_lay"
-        android:background="@color/colorPrimary"
-        app:tabMode="scrollable"
-        app:tabGravity="center"
-        app:tabTextColor="@android:color/white"
-        app:tabIndicatorColor="#ffffff"/>
+        android:layout_height="match_parent">
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="10dp"
+            android:layout_margin="10dp"
+            app:cardBackgroundColor="@color/colorAccent"
+            android:id="@+id/lin1"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:fontFamily="@font/madelina"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Toplam Gider "
+                    android:gravity="center"
+                    android:textColor="@color/colorWhite"
+                    android:textStyle="bold"
+                    android:textSize="30dp"/>
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:fontFamily="@font/madelina"
+                        android:id="@+id/toplam"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="550"
+                        android:gravity="center"
+                        android:textColor="@color/colorWhite"
+                        android:textStyle="bold"
+                        android:textSize="40dp"/>
+                    <TextView
+                        android:fontFamily="@font/madelina"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" ₺"
+                        android:gravity="center"
+                        android:textColor="@color/colorWhite"
+                        android:textStyle="bold"
+                        android:textSize="20dp"/>
 
-    <androidx.viewpager.widget.ViewPager
-        android:layout_below="@id/tab_lay"
-        android:layout_width="match_parent"
-        android:foregroundGravity="center"
-        android:layout_centerInParent="true"
-        android:overScrollMode="never"
-        android:clipToPadding="false"
-        android:layout_height="match_parent"
-        android:id="@+id/viewPager"/>
+                </LinearLayout>
 
+            </LinearLayout>
 
-</RelativeLayout>
+        </androidx.cardview.widget.CardView>
+        <ListView
+            android:layout_above="@+id/nts"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/lin1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/listeView"/>
+
+    </RelativeLayout>
+
+</FrameLayout>

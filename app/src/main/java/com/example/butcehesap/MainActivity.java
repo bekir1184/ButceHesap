@@ -5,66 +5,82 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
+import androidx.core.content.ContextCompat;
+import androidx.viewpager.widget.ViewPager;
 
-import com.example.butcehesap.FragmentSayfalar.AnaSayfaFrag.AnaSayfa;
-import com.example.butcehesap.FragmentSayfalar.Rapor.Aylik.Aylik;
-import com.example.butcehesap.FragmentSayfalar.Rapor.Yillik;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.example.butcehesap.Adapter.ViewAdapter;
 
 public class MainActivity extends AppCompatActivity {
-    BottomNavigationView bottomNavigationView ;
+
+    ViewPager viewPager;
+    LinearLayout sliderDotspanel;
+    private int dotscount;
+    private ImageView[] dots;
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Servis başlat
+        viewPager = (ViewPager) findViewById(R.id.viewPager);
+
+        sliderDotspanel = (LinearLayout) findViewById(R.id.SliderDots);
 
 
 
-        setFragment(new AnaSayfa());
+        ViewAdapter viewPagerAdepter =new ViewAdapter(getSupportFragmentManager(),this);
+        viewPager.setAdapter(viewPagerAdepter);
 
-        bottomNavigationView =findViewById(R.id.nav_bottom);
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+        dotscount = viewPagerAdepter.getCount();
+        dots = new ImageView[dotscount];
+
+        for(int i = 0; i < dotscount; i++){
+
+            dots[i] = new ImageView(this);
+            dots[i].setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.d_indicator));
+
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+
+            params.setMargins(8, 0, 8, 0);
+
+            sliderDotspanel.addView(dots[i], params);
+
+        }
+        dots[0].setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.s_indicator));
+
+
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                if ("Ana Sayfa".equals(menuItem.getTitle())) {
-                    setFragment(new AnaSayfa());
-                    return true;
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                for(int i = 0; i< dotscount; i++){
+                    dots[i].setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.d_indicator));
                 }
-                if ("Aylık".equals(menuItem.getTitle())) {
-                    setFragment(new Aylik());
-                    return true;
-                }
-                if ("Yıllık".equals(menuItem.getTitle())) {
-                    setFragment(new Yillik());
-                    return true;
-                }
-                return false;
+                dots[position].setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.s_indicator));
+
+            }
+
+
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
             }
         });
-
-
-
-
-
-
     }
 
-    private void setFragment(Fragment fragment) {
-        FragmentTransaction fragmentTransaction =getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.frame,fragment);
-        fragmentTransaction.commit();
-    }
+
 
 
 

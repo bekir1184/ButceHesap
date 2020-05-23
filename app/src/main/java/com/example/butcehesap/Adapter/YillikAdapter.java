@@ -2,18 +2,28 @@ package com.example.butcehesap.Adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 
+import com.example.butcehesap.FragmentSayfalar.Rapor.Yillik.YilEkrani;
 import com.example.butcehesap.Model.Yillikitem;
 import com.example.butcehesap.R;
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class YillikAdapter extends ArrayAdapter<Yillikitem> {
@@ -35,34 +45,74 @@ public class YillikAdapter extends ArrayAdapter<Yillikitem> {
         if(convertView ==null){
             convertView=layoutInflater.inflate(R.layout.yillikitem,null);
             holder=new YillikAdapter.ViewHolder();
+            holder.pieChart =convertView.findViewById(R.id.chart);
             holder.ayAdi=convertView.findViewById(R.id.ayAdi);
             holder.gelir=convertView.findViewById(R.id.toplamGelir);
             holder.gider=convertView.findViewById(R.id.toplamGider);
-            holder.akaryakitToplam=convertView.findViewById(R.id.akaryakitToplam);
-            holder.faturaToplam=convertView.findViewById(R.id.faturaToplam);
-            holder.giyimToplam=convertView.findViewById(R.id.giyimToplam);
-            holder.maasToplam=convertView.findViewById(R.id.maasToplam);
-            holder.marketToplam=convertView.findViewById(R.id.marketToplam);
-            holder.gelirDigerToplam=convertView.findViewById(R.id.gelirDigerToplam);
-            holder.giderDigerToplam=convertView.findViewById(R.id.digerGiderToplam);
+            holder.kalanPara=convertView.findViewById(R.id.kalanPara);
+            holder.gitB=convertView.findViewById(R.id.gitB);
             convertView.setTag(holder);
         }
         else{
             holder =(YillikAdapter.ViewHolder) convertView.getTag();
         }
-        Yillikitem yillikitem =getItem(position);
+        final Yillikitem yillikitem =getItem(position);
 
         if(yillikitem != null){
             holder.gider.setText(yillikitem.getGider()+"₺");
             holder.gelir.setText(yillikitem.getGelir()+"₺");
-            holder.giyimToplam.setText(yillikitem.getGiyim()+"₺");
-            holder.marketToplam.setText(yillikitem.getMarket()+"₺");
-            holder.faturaToplam.setText(yillikitem.getFatura()+"₺");
-            holder.akaryakitToplam.setText(yillikitem.getAkaryakit()+"₺");
-            holder.giderDigerToplam.setText(yillikitem.getDiger()+"₺");
-            holder.gelirDigerToplam.setText(yillikitem.getDigerGelir()+"₺");
-            holder.maasToplam.setText(yillikitem.getMass()+"₺");
+            holder.kalanPara.setText(yillikitem.getGelir()-yillikitem.getGider()+"₺");
             holder.ayAdi.setText(yillikitem.getAyAdi());
+
+
+            holder.gitB.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    YilEkrani yilEkrani = new YilEkrani(
+                            yillikitem.getAyAdi(),
+                            yillikitem.getMarket(),
+                            yillikitem.getAkaryakit(),
+                            yillikitem.getGiyim(),
+                            yillikitem.getFatura(),
+                            yillikitem.getDiger(),
+                            yillikitem.getMass(),
+                            yillikitem.getDigerGelir()
+                            );
+                    FragmentManager manager = ((AppCompatActivity)activity).getSupportFragmentManager();
+                    yilEkrani.show(manager,null);
+
+                }
+            });
+
+            //*************************************************************************************
+            holder.pieChart.setUsePercentValues(true);
+            holder.pieChart.getDescription().setEnabled(false);
+            holder.pieChart.setDragDecelerationFrictionCoef(0.95f);
+
+            holder.pieChart.setDrawEntryLabels(false);
+            holder.pieChart.setDrawHoleEnabled(true);
+            holder.pieChart.setHoleColor(Color.rgb(64,85,140))  ;
+            holder.pieChart.setTransparentCircleRadius(61f);
+
+            ArrayList<PieEntry> yValues = new ArrayList<>();
+            yValues.add(new PieEntry(yillikitem.getGelir()-yillikitem.getGider(),"Kalan Para"));
+            yValues.add(new PieEntry(yillikitem.getGider(),"Harcanan Para"));
+
+
+            PieDataSet dataSet = new PieDataSet(yValues,"");
+            dataSet.setSliceSpace(3f);
+            dataSet.setValueTextSize(0);
+            dataSet.setSelectionShift(5f);
+            dataSet.setColors(Color.rgb(42,57,94),Color.rgb(29,161,242));
+
+
+
+            PieData pieData = new PieData(dataSet);
+            pieData.setValueTextSize(0);
+
+            pieData.setValueTextColor(Color.WHITE);
+            holder.pieChart.animateY(1000);
+            holder.pieChart.setData(pieData);
 
         }
 
@@ -82,7 +132,9 @@ public class YillikAdapter extends ArrayAdapter<Yillikitem> {
     }
 
     public class ViewHolder{
-        TextView ayAdi,gelir,gider,maasToplam,gelirDigerToplam,marketToplam,faturaToplam,akaryakitToplam,giyimToplam,giderDigerToplam;
+        TextView ayAdi,gelir,gider,kalanPara;
+        Button gitB;
+        PieChart pieChart;
 
     }
 }

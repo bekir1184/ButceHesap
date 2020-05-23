@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".FragmentSayfalar.Rapor.Aylik.AylikGelir">
 
@@ -14,7 +15,7 @@
             android:layout_height="wrap_content"
             app:cardCornerRadius="10dp"
             android:layout_margin="10dp"
-            app:cardBackgroundColor="@android:color/white"
+            app:cardBackgroundColor="@color/colorAccent"
             android:id="@+id/lin1"
             >
             <LinearLayout
@@ -22,33 +23,36 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
                 <TextView
+                    android:fontFamily="@font/madelina"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Toplam Gelir "
                     android:gravity="center"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/colorWhite"
                     android:textStyle="bold"
-                    android:textSize="20dp"/>
+                    android:textSize="30dp"/>
                 <LinearLayout
                     android:gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <TextView
+                        android:fontFamily="@font/madelina"
                         android:id="@+id/toplam"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="550"
                         android:gravity="center"
-                        android:textColor="@color/colorAccent"
+                        android:textColor="@color/colorWhite"
                         android:textStyle="bold"
-                        android:textSize="20dp"/>
+                        android:textSize="40dp"/>
                     <TextView
+                        android:fontFamily="@font/madelina"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text=" ₺"
                         android:gravity="center"
-                        android:textColor="@color/colorAccent"
+                        android:textColor="@color/colorWhite"
                         android:textStyle="bold"
                         android:textSize="20dp"/>
 

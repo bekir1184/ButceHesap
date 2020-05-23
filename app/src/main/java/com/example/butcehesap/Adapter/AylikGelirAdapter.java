@@ -12,7 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.butcehesap.Model.Gelir;
-import com.example.butcehesap.Model.Harcama;
 import com.example.butcehesap.R;
 
 import java.util.List;
@@ -54,7 +53,7 @@ public class AylikGelirAdapter  extends ArrayAdapter<Gelir> {
 
         if(harcama != null){
             String tutarStr=Integer.toString(harcama.getTutar());
-            holder.tutar.setText(tutarStr);
+            holder.tutar.setText(tutarStr+" ₺");
 
             holder.kategori.setText(harcama.getKategori());
 

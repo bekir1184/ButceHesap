@@ -1,7 +1,5 @@
 package com.example.butcehesap.FragmentSayfalar.Rapor.Aylik;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -13,12 +11,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.butcehesap.Adapter.AylikGelirAdapter;
-import com.example.butcehesap.Adapter.AylikItemAdapter;
 import com.example.butcehesap.Model.Gelir;
-import com.example.butcehesap.Model.Harcama;
 import com.example.butcehesap.R;
 import com.example.butcehesap.SQLite.GelirVeriKatmani;
-import com.example.butcehesap.SQLite.VeriKatmani;
 
 import java.util.List;
 

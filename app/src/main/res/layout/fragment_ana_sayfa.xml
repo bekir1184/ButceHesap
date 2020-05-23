@@ -3,597 +3,203 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="bottom"
+    android:background="@color/colorPrimary"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".FragmentSayfalar.AnaSayfaFrag.AnaSayfa">
     <!--ayarlar +,giderT+,gelirT+,giderEkle,gelirEkle,grafik -->
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:layout_width="match_parent"
-        android:id="@+id/swipeRef"
-        android:layout_height="250dp">
-
-            <RelativeLayout
-                android:id="@+id/header"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorPrimary"
-                >
-                <ImageButton
-                    android:layout_margin="10dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/ic_settings_black_24dp"
-                    android:background="@color/colorPrimary"
-                    android:tint="@android:color/white"
-                    android:id="@+id/ayarlar"/>
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/leaf"
-                    android:layout_margin="10dp"
-                    android:id="@+id/evResim"/>
 
 
-                <LinearLayout
-                    android:id="@+id/basLin"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/evResim"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    >
-                    <androidx.cardview.widget.CardView
-                        android:layout_margin="10dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:cardBackgroundColor="@android:color/white"
-                        app:cardCornerRadius="10dp"
-                        >
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:orientation="horizontal"
-                            >
-                            <ImageView
-                                android:layout_margin="10dp"
-                                android:layout_width="40dp"
-                                android:layout_height="50dp"
-                                android:src="@drawable/expenses"
-                                />
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:id="@+id/baslik"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="10dp"
-                                    android:text="Toplam gider"
-                                    android:textColor="@color/colorPrimaryDark"
-                                    android:textSize="17dp" />
-
-                                <TextView
-                                    android:id="@+id/giderT"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_below="@+id/baslik"
-                                    android:text="500"
-                                    android:textColor="@android:color/holo_red_light"
-                                    android:textSize="20dp" />
-
-
-                            </LinearLayout>
-
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-                    <androidx.cardview.widget.CardView
-                        android:layout_margin="10dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:cardBackgroundColor="@android:color/white"
-                        app:cardCornerRadius="10dp"
-                        >
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:orientation="horizontal"
-                            >
-                            <ImageView
-                                android:layout_margin="10dp"
-                                android:layout_width="40dp"
-                                android:layout_height="50dp"
-                                android:src="@drawable/profit"
-                                />
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:orientation="vertical">
-                                <TextView
-                                    android:layout_margin="10dp"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Toplam gelir"
-                                    android:id="@+id/baslik2"
-                                    android:textColor="@color/colorPrimaryDark"
-                                    android:textSize="17dp"/>
-                                <TextView
-                                    android:layout_below="@+id/baslik"
-                                    android:id="@+id/gelirT"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="500"
-                                    android:textColor="@android:color/holo_green_light"
-                                    android:textSize="20dp"/>
-
-
-
-                            </LinearLayout>
-
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-
-                </LinearLayout>
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:cardCornerRadius="10dp"
-                    android:layout_below="@+id/basLin"
-                    app:cardBackgroundColor="@android:color/white"
-                    android:layout_margin="20dp"
-                    >
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                        <ImageView
-                            android:layout_alignParentLeft="true"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:src="@drawable/moneykalan"
-                            android:layout_margin="10dp"/>
-
-
-                        <LinearLayout
-                            android:layout_centerVertical="true"
-                            android:layout_alignParentRight="true"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textSize="20dp"
-                                android:textColor="@android:color/black"
-                                android:text="Kalan Para"
-                                android:layout_margin="10dp"
-                                />
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textSize="20dp"
-                                android:textColor="@android:color/black"
-                                android:text="500"
-                                android:id="@+id/kalanPara"
-                                android:layout_margin="10dp"
-                                />
-                        </LinearLayout>
-
-                    </RelativeLayout>
-
-
-                </androidx.cardview.widget.CardView>
-
-
-
-
-            </RelativeLayout>
-
-
-
-
-
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-    <RelativeLayout
-
-        android:background="@color/colorAccent"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/swipeRef"
+
         >
-        <ScrollView
-            android:id="@+id/harcamalar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
-            <HorizontalScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <LinearLayout
-                    android:gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        app:cardBackgroundColor="@android:color/white"
-                        app:cardCornerRadius="10dp"
-                        android:layout_margin="10dp"
-                        >
-                        <Button
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@android:color/transparent"
-                            android:id="@+id/marketButton"
-                            />
-                        <LinearLayout
-                            android:layout_margin="5dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:orientation="vertical">
-                            <ImageView
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:src="@drawable/shopping_cart"
-                                />
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Market"
-                                />
-                            <TextView
-                                android:id="@+id/marketToplam"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="120"
-                                />
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        app:cardBackgroundColor="@android:color/white"
-                        app:cardCornerRadius="10dp"
-                        android:layout_margin="10dp"
-                        >
-                        <Button
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@android:color/transparent"
-                            android:id="@+id/akaryakitButton"
-                            />
-                        <LinearLayout
-                            android:layout_margin="5dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:orientation="vertical">
-                            <ImageView
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:src="@drawable/fuel"
-                                />
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Akaryakit"
-                                />
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="120"
-                                android:id="@+id/akaryakitToplam"
-                                />
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        app:cardBackgroundColor="@android:color/white"
-                        app:cardCornerRadius="10dp"
-                        android:layout_margin="10dp"
-                        >
-                        <Button
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@android:color/transparent"
-                            android:id="@+id/giyimButton"
-                            />
-                        <LinearLayout
-                            android:layout_margin="5dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:orientation="vertical">
-                            <ImageView
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:src="@drawable/hoodie"
-                                />
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Giyim"
-                                />
-                            <TextView
-                                android:id="@+id/giyimToplam"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="120"
-                                />
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        app:cardBackgroundColor="@android:color/white"
-                        app:cardCornerRadius="10dp"
-                        android:layout_margin="10dp"
-                        >
-                        <Button
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@android:color/transparent"
-                            android:id="@+id/faturaButton"
-                            />
-                        <LinearLayout
-                            android:layout_margin="5dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:orientation="vertical">
-                            <ImageView
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:src="@drawable/fatura"
-                                />
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Fatura"
-                                />
-                            <TextView
-                                android:id="@+id/faturaToplam"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="120"
-                                />
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        app:cardBackgroundColor="@android:color/white"
-                        app:cardCornerRadius="10dp"
-                        android:layout_margin="10dp"
-                        >
-                        <Button
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@android:color/transparent"
-                            android:id="@+id/digerButton"
-                            />
-                        <LinearLayout
-                            android:layout_margin="5dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:orientation="vertical">
-                            <ImageView
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:src="@drawable/paper"
-                                />
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Diğer"
-                                />
-                            <TextView
-                                android:id="@+id/digerToplam"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="120"
-                                />
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
-
-
-                </LinearLayout>
-
-            </HorizontalScrollView>
-        </ScrollView>
-        <ScrollView
-            android:layout_below="@+id/harcamalar"
+        <RelativeLayout
+            android:layout_marginTop="20dp"
+            android:layout_gravity="top"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <RelativeLayout
+            <TextView
+                android:layout_marginLeft="20dp"
+                android:id="@+id/baslik"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Anasayfa"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:textSize="30dp"
+                android:gravity="left"
+                android:fontFamily="@font/madelina"
+                />
+            <ImageButton
+                android:id="@+id/ayarlar"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/ic_chevron_right_black_24dp"
+                android:background="@color/colorPrimary"/>
+            <androidx.cardview.widget.CardView
+                android:layout_below="@+id/baslik"
+                android:layout_margin="20dp"
+                android:id="@+id/card1"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <LinearLayout
-                    android:id="@+id/grafikler"
-                    android:gravity="center"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="10dp"
+                app:cardBackgroundColor="@color/colorAccent">
+
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <androidx.cardview.widget.CardView
+                    >
+                    <androidx.viewpager.widget.ViewPager
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:id="@+id/viewPagerAna"
+                        android:layout_marginBottom="20dp"
+                        />
+
+                    <LinearLayout
+                        android:id="@+id/dots"
+                        android:layout_below="@id/viewPagerAna"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="wrap_content"
+                android:foregroundGravity="center"
+                android:layout_below="@+id/card1"
+                android:layout_height="wrap_content"
+                android:id="@+id/harcamalarRec">
+
+            </androidx.recyclerview.widget.RecyclerView>
+            <LinearLayout
+                android:gravity="center"
+                android:id="@+id/grafLin"
+                android:layout_below="@+id/harcamalarRec"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/grafCard"
+                    android:layout_weight=".50"
+                    android:layout_below="@+id/harcamalarRec"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    app:cardCornerRadius="10dp"
+                    app:cardBackgroundColor="@color/colorPrimaryDark"
+                    android:layout_margin="20dp"
+                    >
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:id="@+id/gelirGrafik"/>
+                    <LinearLayout
+                        android:layout_margin="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:cardBackgroundColor="@android:color/white"
-                        app:cardCornerRadius="10dp"
-                        android:layout_margin="20dp"
-                        android:layout_below="@+id/harcamalar"
-                        >
-                        <RelativeLayout
-                            android:layout_marginTop="10dp"
-                            android:layout_marginBottom="10dp"
-                            android:layout_marginLeft="30dp"
-                            android:layout_marginRight="30dp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_marginLeft="5dp"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-                            <TextView
-                                android:id="@+id/GelirBaslik"
-                                android:layout_centerHorizontal="true"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Gelir Grafik"
-                                android:textColor="@android:color/black"
-                                />
-                            <ImageView
-                                android:layout_below="@+id/GelirBaslik"
-                                android:layout_width="100dp"
-                                android:layout_height="100dp"
-                                android:src="@drawable/graph_gelir"/>
-                            <Button
-                                android:layout_width="100dp"
-                                android:layout_height="100dp"
-                                android:layout_below="@id/GelirBaslik"
-                                android:id="@+id/grafik2"
-                                android:background="@android:color/transparent"/>
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="25dp"
+                            android:text="Gelir Grafik"
+                            android:fontFamily="@font/madelina"
+                            />
+                        <com.github.mikephil.charting.charts.LineChart
+                            android:layout_weight=".30"
+                            android:id="@+id/chart"
+                            android:layout_width="200dp"
+                            android:layout_height="200dp" />
+                    </LinearLayout>
 
-                        </RelativeLayout>
-
-                    </androidx.cardview.widget.CardView>
-                    <androidx.cardview.widget.CardView
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/grafCard1"
+                    android:layout_weight=".50"
+                    android:layout_below="@+id/harcamalarRec"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    app:cardCornerRadius="10dp"
+                    app:cardBackgroundColor="@color/colorPrimaryDark"
+                    android:layout_margin="20dp"
+                    >
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:id="@+id/giderGrafik"/>
+                    <LinearLayout
+                        android:layout_margin="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:cardBackgroundColor="@android:color/white"
-                        app:cardCornerRadius="10dp"
-                        android:layout_margin="20dp"
-                        android:layout_below="@+id/harcamalar"
-                        >
-                        <RelativeLayout
-                            android:layout_marginTop="10dp"
-                            android:layout_marginBottom="10dp"
-                            android:layout_marginLeft="30dp"
-                            android:layout_marginRight="30dp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_marginLeft="5dp"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-                            <TextView
-                                android:id="@+id/GiderBaslik"
-                                android:layout_centerHorizontal="true"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Gider Grafik"
-                                android:textColor="@android:color/black"
-                                />
-                            <ImageView
-                                android:layout_below="@+id/GiderBaslik"
-                                android:layout_width="100dp"
-                                android:layout_height="100dp"
-                                android:src="@drawable/graph__gider"/>
-                            <Button
-                                android:layout_width="100dp"
-                                android:layout_height="100dp"
-                                android:layout_below="@id/GiderBaslik"
-                                android:id="@+id/grafik"
-                                android:background="@android:color/transparent"/>
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="25dp"
+                            android:text="Gider Grafik"
+                            android:fontFamily="@font/madelina"
+                            />
+                        <com.github.mikephil.charting.charts.LineChart
 
-                        </RelativeLayout>
+                            android:id="@+id/chart1"
+                            android:layout_weight=".30"
+                            android:layout_width="200dp"
+                            android:layout_height="200dp" />
+                    </LinearLayout>
 
-                    </androidx.cardview.widget.CardView>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/buttonlar"
+                android:layout_width="match_parent"
+                android:layout_below="@+id/grafLin"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
 
-                </LinearLayout>
-                <LinearLayout
-                    android:gravity="center"
-                    android:layout_below="@+id/grafikler"
-                    android:layout_width="match_parent"
+                <Button
+                    android:id="@+id/gelirEkle"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:cardBackgroundColor="@android:color/white"
-                        app:cardCornerRadius="10dp"
-                        android:layout_margin="20dp"
-                        android:layout_below="@+id/harcamalar"
-                        >
-                        <RelativeLayout
-                            android:layout_marginTop="10dp"
-                            android:layout_marginBottom="10dp"
-                            android:layout_marginLeft="30dp"
-                            android:layout_marginRight="30dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-                            <TextView
-                                android:id="@+id/GelirekleBaslik"
-                                android:layout_centerHorizontal="true"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Gelir Ekle"
-                                android:textColor="@android:color/black"
-                                />
-                            <ImageView
-                                android:layout_below="@+id/GelirekleBaslik"
-                                android:layout_width="100dp"
-                                android:layout_height="100dp"
-                                android:src="@drawable/ekle_gelir"/>
-                            <Button
-                                android:layout_width="100dp"
-                                android:layout_height="100dp"
-                                android:layout_below="@id/GelirekleBaslik"
-                                android:id="@+id/gelirEkle"
-                                android:background="@android:color/transparent"/>
+                    android:text="Gelir Ekle"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
+                    android:fontFamily="@font/madelina"
+                    android:textAllCaps="false"
+                    android:textSize="25dp"
+                    android:background="@drawable/buttonarka"
+                    android:layout_margin="20dp"/>
+                <Button
+                    android:id="@+id/giderEkle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gider Ekle"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
+                    android:fontFamily="@font/madelina"
+                    android:textAllCaps="false"
+                    android:textSize="25dp"
+                    android:background="@drawable/buttonarka"
+                    android:layout_margin="20dp"/>
 
-                        </RelativeLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
 
-                    </androidx.cardview.widget.CardView>
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:cardBackgroundColor="@android:color/white"
-                        app:cardCornerRadius="10dp"
-                        android:layout_margin="20dp"
-                        android:layout_below="@+id/harcamalar"
-                        >
-                        <RelativeLayout
-                            android:layout_marginTop="10dp"
-                            android:layout_marginBottom="10dp"
-                            android:layout_marginLeft="30dp"
-                            android:layout_marginRight="30dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-                            <TextView
-                                android:id="@+id/GiderEkleBaslik"
-                                android:layout_centerHorizontal="true"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Gider Ekle"
-                                android:textColor="@android:color/black"
-                                />
-                            <ImageView
-                                android:layout_below="@+id/GiderEkleBaslik"
-                                android:layout_width="100dp"
-                                android:layout_height="100dp"
-                                android:src="@drawable/ekle_gider"/>
-                            <Button
-                                android:layout_width="100dp"
-                                android:layout_height="100dp"
-                                android:layout_below="@id/GiderEkleBaslik"
-                                android:id="@+id/giderEkle"
-                                android:background="@android:color/transparent"/>
-
-                        </RelativeLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-                </LinearLayout>
-            </RelativeLayout>
-        </ScrollView>
-
-
-
-    </RelativeLayout>
 
 
 </RelativeLayout>

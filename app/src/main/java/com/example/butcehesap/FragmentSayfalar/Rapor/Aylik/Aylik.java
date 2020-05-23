@@ -1,57 +1,46 @@
 package com.example.butcehesap.FragmentSayfalar.Rapor.Aylik;
 
-import android.content.Context;
-import android.net.Uri;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ListView;
-import android.widget.TextView;
-
-import com.example.butcehesap.Adapter.AylikItemAdapter;
-import com.example.butcehesap.FragmentSayfalar.AnaSayfaFrag.GelirEkle;
-import com.example.butcehesap.FragmentSayfalar.AnaSayfaFrag.HarcamaEkle;
-import com.example.butcehesap.Model.Harcama;
 import com.example.butcehesap.R;
-import com.example.butcehesap.SQLite.VeriKatmani;
-import com.gigamole.navigationtabstrip.NavigationTabStrip;
-
-import java.util.List;
 
 
 public class Aylik extends Fragment {
     View rootView;
-    NavigationTabStrip navigationTabStrip;
+    Button gelir ;
+    Button gider ;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         rootView= inflater.inflate(R.layout.fragment_aylik, container, false);
-        setFragment(new AylikGider());
-        navigationTabStrip=rootView.findViewById(R.id.nts);
-        navigationTabStrip.setTitles("Gider","Gelir");
-        navigationTabStrip.setTabIndex(0,true);
+        setFragment(new AylikGelir());
+        gelir = rootView.findViewById(R.id.gelir);
+        gider = rootView.findViewById(R.id.gider);
 
-        navigationTabStrip.setOnTabStripSelectedIndexListener(new NavigationTabStrip.OnTabStripSelectedIndexListener() {
+        gelir.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onStartTabSelected(String title, int index) {
-                if(index ==0){
-                    setFragment(new AylikGider());
-                }
-                if(index ==1){
-                    setFragment(new AylikGelir());
-                }
-
+            public void onClick(View v) {
+                gider.setBackgroundColor(Color.rgb(64,85,140));
+                gelir.setBackgroundColor(Color.rgb(29,161,242));
+                setFragment(new AylikGelir());
             }
-
+        });
+        gider.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onEndTabSelected(String title, int index) {
-
+            public void onClick(View v) {
+                gelir.setBackgroundColor(Color.rgb(64,85,140));
+                gider.setBackgroundColor(Color.rgb(29,161,242));
+                setFragment(new AylikGider());
             }
         });
 
