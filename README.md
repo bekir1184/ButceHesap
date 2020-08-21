@@ -1,11 +1,13 @@
 # ButceHesap
 Aylik gelir giderlerinizi kategorilere gore girip gelir ve giderlerinizin ne oldugunu gorebiliyorsunuz.Ayni zamanda belirlediginiz ay sonu tarihinde onceki ay sifirlanip yillik bolumune eklenir boylece onceki aylarda da nerelere harcadiginizi gorebilirsiniz.
+![ezgif com-resize (7)](https://user-images.githubusercontent.com/47231687/90922613-f62ea980-e3f4-11ea-858e-a8782b655550.png)
 
-![anaSayfa](https://user-images.githubusercontent.com/47231687/82740868-5d38b580-9d55-11ea-8c63-76231b48c79c.png)
 
-![kat](https://user-images.githubusercontent.com/47231687/82740877-70e41c00-9d55-11ea-86bd-acb7b7da0450.png)
-![gelirGra](https://user-images.githubusercontent.com/47231687/82740888-80fbfb80-9d55-11ea-8ae6-c152d9f60380.png)
-![ezgif com-resize](https://user-images.githubusercontent.com/47231687/82740893-97a25280-9d55-11ea-97ac-e0cf032408a3.png)
-![ezgif com-resize(1)](https://user-images.githubusercontent.com/47231687/82740895-a0932400-9d55-11ea-84fc-00e7934d86be.png)
+![ezgif com-resize (8)](https://user-images.githubusercontent.com/47231687/90922695-13fc0e80-e3f5-11ea-9b75-cefff406d039.png)
 
-![ezgif com-resize(2)](https://user-images.githubusercontent.com/47231687/82740901-aa1c8c00-9d55-11ea-9826-3f76a51824cb.png)
+![ezgif com-resize (9)](https://user-images.githubusercontent.com/47231687/90922750-2aa26580-e3f5-11ea-89b6-154d5c0c5fc6.png)
+
+![ezgif com-resize (10)](https://user-images.githubusercontent.com/47231687/90922827-4d347e80-e3f5-11ea-9237-398c52cf0634.png)
+
+![ezgif com-resize (11)](https://user-images.githubusercontent.com/47231687/90922919-71905b00-e3f5-11ea-939e-31d046fed7e3.png)
+
